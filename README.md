@@ -14,3 +14,6 @@ Open a new terminal an run
 ```bash
 adb-tcp-quick
 ```
+
+**Note**
+Your phone must be connected via usb, after the scripts finish you can unplugged the device and continue working over wifi. 
