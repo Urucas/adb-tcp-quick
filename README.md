@@ -1,5 +1,5 @@
 # adb-tcp-quick
-Bash-cli to quickly connect an android device to adb over wifi
+Quickly connect an android device to adb over wifi
 
 #Install
 ```bash
