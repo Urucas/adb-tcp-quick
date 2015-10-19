@@ -1,3 +1,4 @@
+$(adb start-server)
 ALREADY_CONNECTED=$(adb devices | egrep -o ':5555')
 if [ ! -z $ALREADY_CONNECTED ]; then
   echo "Already connected"
