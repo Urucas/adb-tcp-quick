@@ -1,16 +1,30 @@
 #!/usr/bin/env node
 var quickConnect = require('../dist/')
 var argv = process.argv.slice(2)
+var logger = require('semafor')()
 if(argv.indexOf("--help") != -1){
   console.log([
     "Usage",
-    "adb-tcp-quick [-s device_id] [-d device_ip]"
+    "  adb-tcp-quick [-d]",
+    "  use -d to disconnect a device"
   ].join("\n"))
   return
 }
 args = require('minimist')(argv)
 if(args.d) {
-  quickConnect.disconnectUI(args.d)
+  quickConnect.disconnectUI(function(err){
+    if(err) {
+      logger.fail(err.toString());
+      return;
+    }
+    logger.ok("Device successfully disconnected");
+  })
   return;
 }
-console.log(args)
+quickConnect.connectUI(function(err, conn){
+  if(err) {
+    logger.fail(err.toString())
+    return;
+  }
+  logger.ok("Device successfully connected on "+conn);
+});
