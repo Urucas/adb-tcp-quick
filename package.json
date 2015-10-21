@@ -4,8 +4,10 @@
   "description": "Quickly connect an android device to adb over wifi",
   "main": "bin/cli",
   "scripts": {
+    "build": "./node_modules/grunt-cli/bin/grunt build",
     "test": "./node_modules/mocha/bin/mocha tests/* --compilers js:babel/register -t 15s",
-    "build": "./node_modules/grunt-cli/bin/grunt build"
+    "prestart": "npm run build",
+    "start": "./bin/cli"
   },
   "repository": {
     "type": "git",
@@ -31,8 +33,10 @@
     "mocha": "^2.3.3"
   },
   "dependencies": {
-    "adbjs": "^0.2.0",
+    "adbjs": "^0.2.1",
+    "grunt-cli": "^0.1.13",
     "inquirer": "^0.10.1",
+    "minimist": "^1.2.0",
     "semafor": "0.0.1"
   }
 }

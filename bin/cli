@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+var quickConnect = require('../dist/')
+var argv = process.argv.slice(2)
+if(argv.indexOf("--help") != -1){
+  console.log([
+    "Usage",
+    "adb-tcp-quick [-s device_id] [-d device_ip]"
+  ].join("\n"))
+  return
+}
+args = require('minimist')(argv)
+if(args.d) {
+  quickConnect.disconnectUI(args.d)
+  return;
+}
+console.log(args)
