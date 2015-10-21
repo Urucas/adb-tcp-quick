@@ -9,6 +9,10 @@
     "prestart": "npm run build",
     "start": "./bin/cli"
   },
+  "bin": {
+    "adb-tcp-quick": "./bin/cli"
+  },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Urucas/adb-tcp-quick.git"
